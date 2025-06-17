@@ -1,3 +1,13 @@
+## [v0.14.0](https://github.com/docling-project/docling-serve/releases/tag/v0.14.0) - 2025-06-17
+
+### Feature
+
+* Read supported file extensions from docling ([#214](https://github.com/docling-project/docling-serve/issues/214)) ([`524f6a8`](https://github.com/docling-project/docling-serve/commit/524f6a8997b86d2f869ca491ec8fb40585b42ca4))
+
+### Fix
+
+* Typo in Headline ([#220](https://github.com/docling-project/docling-serve/issues/220)) ([`d5455b7`](https://github.com/docling-project/docling-serve/commit/d5455b7f66de39ea1f8b8927b5968d2baa23ca88))
+
 ## [v0.13.0](https://github.com/docling-project/docling-serve/releases/tag/v0.13.0) - 2025-06-04
 
 ### Feature

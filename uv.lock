@@ -722,6 +722,7 @@ dependencies = [
     { name = "pydantic", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "pydantic-settings", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "python-multipart", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
+    { name = "scalar-fastapi", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "typer", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "uvicorn", extra = ["standard"], marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "websockets", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
@@ -781,6 +782,7 @@ requires-dist = [
     { name = "pydantic-settings", specifier = "~=2.4" },
     { name = "python-multipart", specifier = ">=0.0.14,<0.1.0" },
     { name = "rapidocr-onnxruntime", marker = "python_full_version < '3.13' and extra == 'rapidocr'", specifier = "~=1.4" },
+    { name = "scalar-fastapi", specifier = ">=1.0.3" },
     { name = "tesserocr", marker = "extra == 'tesserocr'", specifier = "~=2.7" },
     { name = "torch", marker = "extra == 'cpu'", specifier = ">=2.6.0", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "docling-serve", extra = "cpu" } },
     { name = "torch", marker = "extra == 'cu124'", specifier = ">=2.6.0", index = "https://download.pytorch.org/whl/cu124", conflict = { package = "docling-serve", extra = "cu124" } },
@@ -4207,6 +4209,15 @@ torch = [
     { name = "torch", version = "2.7.1", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'x86_64' and sys_platform == 'darwin' and extra == 'extra-13-docling-serve-cpu') or (platform_machine == 'x86_64' and extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (platform_machine == 'x86_64' and extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn') or (sys_platform != 'darwin' and extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (sys_platform != 'darwin' and extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "torch", version = "2.7.1", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'x86_64' and sys_platform == 'darwin' and extra != 'extra-13-docling-serve-cpu' and extra != 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
     { name = "torch", version = "2.7.1+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-13-docling-serve-cpu') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },
+]
+
+[[package]]
+name = "scalar-fastapi"
+version = "1.0.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/2c/04/08ae9e86f24cd9b43bc5b2068fc5d1dcd3e7efa6db860290734d7d742512/scalar_fastapi-1.0.3.tar.gz", hash = "sha256:9e9cb8398e298cd435a0171eebe1675b8899eb21e47c238db0d48783143f0ffb", size = 4107, upload-time = "2024-08-19T02:58:06.739Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6d/9e/ca0ffc3fc4788c6e1367b96a70f2d6ee33f91d580664a8142ba7ee292ef2/scalar_fastapi-1.0.3-py3-none-any.whl", hash = "sha256:4a47a140795097ad034518ce0e32940f2c54f0f4bc60e4c3289ca30a7e6f954d", size = 4579, upload-time = "2024-08-19T02:58:05.203Z" },
 ]
 
 [[package]]

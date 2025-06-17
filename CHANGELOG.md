@@ -1,3 +1,13 @@
+## [v0.15.0](https://github.com/docling-project/docling-serve/releases/tag/v0.15.0) - 2025-06-17
+
+### Feature
+
+* Use redocs and scalar as api docs ([#228](https://github.com/docling-project/docling-serve/issues/228)) ([`873d05a`](https://github.com/docling-project/docling-serve/commit/873d05aefe141c63b9c1cf53b23b4fa8c96de05d))
+
+### Fix
+
+* "tesserocr" instead of "tesseract_cli" in usage docs ([#223](https://github.com/docling-project/docling-serve/issues/223)) ([`196c5ce`](https://github.com/docling-project/docling-serve/commit/196c5ce42a04d77234a4212c3d9b9772d2c2073e))
+
 ## [v0.14.0](https://github.com/docling-project/docling-serve/releases/tag/v0.14.0) - 2025-06-17
 
 ### Feature

@@ -710,7 +710,7 @@ wheels = [
 
 [[package]]
 name = "docling-serve"
-version = "0.14.0"
+version = "0.15.0"
 source = { editable = "." }
 dependencies = [
     { name = "docling", extra = ["vlm"], marker = "platform_machine != 'x86_64' or sys_platform != 'darwin' or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-cu124') or (extra == 'extra-13-docling-serve-cpu' and extra == 'extra-13-docling-serve-flash-attn')" },

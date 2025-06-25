@@ -1,3 +1,13 @@
+## [v0.16.0](https://github.com/docling-project/docling-serve/releases/tag/v0.16.0) - 2025-06-25
+
+### Feature
+
+* Package updates and more cuda images ([#229](https://github.com/docling-project/docling-serve/issues/229)) ([`30aca92`](https://github.com/docling-project/docling-serve/commit/30aca92298ab0d86bb4debcfcacb2dd8b9040a27))
+
+### Documentation
+
+* Update example resources and improve README ([#231](https://github.com/docling-project/docling-serve/issues/231)) ([`80755a7`](https://github.com/docling-project/docling-serve/commit/80755a7d5955f7d0c53df8e558fdd852dd1f5b75))
+
 ## [v0.15.0](https://github.com/docling-project/docling-serve/releases/tag/v0.15.0) - 2025-06-17
 
 ### Feature

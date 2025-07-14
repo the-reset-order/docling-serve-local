@@ -1,3 +1,15 @@
+## [v1.0.0](https://github.com/docling-project/docling-serve/releases/tag/v1.0.0) - 2025-07-14
+
+### Feature
+
+* V1 api with list of sources and target ([#249](https://github.com/docling-project/docling-serve/issues/249)) ([`56e328b`](https://github.com/docling-project/docling-serve/commit/56e328baf76b4bb0476fc6ca820b52034e4f97bf))
+* Use orchestrators from jobkit ([#248](https://github.com/docling-project/docling-serve/issues/248)) ([`daa924a`](https://github.com/docling-project/docling-serve/commit/daa924a77e56d063ef17347dfd8a838872a70529))
+
+### Breaking
+
+* v1 api with list of sources and target ([#249](https://github.com/docling-project/docling-serve/issues/249)) ([`56e328b`](https://github.com/docling-project/docling-serve/commit/56e328baf76b4bb0476fc6ca820b52034e4f97bf))
+* use orchestrators from jobkit ([#248](https://github.com/docling-project/docling-serve/issues/248)) ([`daa924a`](https://github.com/docling-project/docling-serve/commit/daa924a77e56d063ef17347dfd8a838872a70529))
+
 ## [v0.16.1](https://github.com/docling-project/docling-serve/releases/tag/v0.16.1) - 2025-07-07
 
 ### Fix

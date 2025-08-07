@@ -1,3 +1,10 @@
+## [v1.2.0](https://github.com/docling-project/docling-serve/releases/tag/v1.2.0) - 2025-08-07
+
+### Feature
+
+* Workers without shared models and convert params ([#304](https://github.com/docling-project/docling-serve/issues/304)) ([`db3fdb5`](https://github.com/docling-project/docling-serve/commit/db3fdb5bc1a0ae250afd420d737abc4071a7546c))
+* Add rocm image build support and fix cuda ([#292](https://github.com/docling-project/docling-serve/issues/292)) ([`fd1b987`](https://github.com/docling-project/docling-serve/commit/fd1b987e8dc174f1a6013c003dde33e9acbae39a))
+
 ## [v1.1.0](https://github.com/docling-project/docling-serve/releases/tag/v1.1.0) - 2025-07-30
 
 ### Feature

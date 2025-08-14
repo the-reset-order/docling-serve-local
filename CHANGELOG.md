@@ -1,3 +1,16 @@
+## [v1.3.0](https://github.com/docling-project/docling-serve/releases/tag/v1.3.0) - 2025-08-14
+
+### Feature
+
+* Add configuration option for apikey security ([#322](https://github.com/docling-project/docling-serve/issues/322)) ([`9a64410`](https://github.com/docling-project/docling-serve/commit/9a644105523d312431993ded8dd88e064550a5db))
+* Add RQ engine ([#315](https://github.com/docling-project/docling-serve/issues/315)) ([`885f319`](https://github.com/docling-project/docling-serve/commit/885f319d3a3488a4090869560447437a4104f14e))
+
+### Documentation
+
+* Example of docling-serve deployment in the RQ engine mode ([#321](https://github.com/docling-project/docling-serve/issues/321)) ([`71edf41`](https://github.com/docling-project/docling-serve/commit/71edf4184960d8664ef9da20617e2d0f91793d36))
+* Handling models in docling-serve ([#319](https://github.com/docling-project/docling-serve/issues/319)) ([`6e9aa8c`](https://github.com/docling-project/docling-serve/commit/6e9aa8c759220458281c7fe4c87443ac41023eee))
+* Add Gradio cache usage ([#312](https://github.com/docling-project/docling-serve/issues/312)) ([`d584895`](https://github.com/docling-project/docling-serve/commit/d584895e1108d71a0f45deadcd3c669eb0a58133))
+
 ## [v1.2.2](https://github.com/docling-project/docling-serve/releases/tag/v1.2.2) - 2025-08-13
 
 ### Fix

@@ -5,6 +5,8 @@ async
 (?i)urls
 uvicorn
 [Ww]ebserver
+RQ
+(?i)url
 keyfile
 [Ww]ebsocket(s?)
 [Kk]ubernetes

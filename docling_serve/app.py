@@ -18,6 +18,7 @@ from fastapi import (
     UploadFile,
     WebSocket,
     WebSocketDisconnect,
+    status,
 )
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.docs import (
@@ -48,6 +49,7 @@ from docling_jobkit.orchestrators.base_orchestrator import (
     TaskNotFoundError,
 )
 
+from docling_serve.auth import APIKeyAuth, AuthenticationResult
 from docling_serve.datamodel.convert import ConvertDocumentsRequestOptions
 from docling_serve.datamodel.requests import (
     ConvertDocumentsRequest,
@@ -156,6 +158,7 @@ def create_app():  # noqa: C901
         offline_docs_assets = True
         _log.info("Found static assets.")
 
+    require_auth = APIKeyAuth(docling_serve_settings.api_key)
     app = FastAPI(
         title="Docling Serve",
         docs_url=None if offline_docs_assets else "/swagger",
@@ -400,6 +403,7 @@ def create_app():  # noqa: C901
     )
     async def process_url(
         background_tasks: BackgroundTasks,
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         conversion_request: ConvertDocumentsRequest,
     ):
@@ -443,6 +447,7 @@ def create_app():  # noqa: C901
     )
     async def process_file(
         background_tasks: BackgroundTasks,
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         files: list[UploadFile],
         options: Annotated[
@@ -485,6 +490,7 @@ def create_app():  # noqa: C901
         response_model=TaskStatusResponse,
     )
     async def process_url_async(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         conversion_request: ConvertDocumentsRequest,
     ):
@@ -507,6 +513,7 @@ def create_app():  # noqa: C901
         response_model=TaskStatusResponse,
     )
     async def process_file_async(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         background_tasks: BackgroundTasks,
         files: list[UploadFile],
@@ -535,6 +542,7 @@ def create_app():  # noqa: C901
         response_model=TaskStatusResponse,
     )
     async def task_status_poll(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         task_id: str,
         wait: Annotated[
@@ -562,7 +570,15 @@ def create_app():  # noqa: C901
         websocket: WebSocket,
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         task_id: str,
+        api_key: Annotated[str, Query()] = "",
     ):
+        if docling_serve_settings.api_key:
+            if api_key != docling_serve_settings.api_key:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="Api key is required as ?api_key=SECRET.",
+                )
+
         assert isinstance(orchestrator.notifier, WebsocketNotifier)
         await websocket.accept()
 
@@ -629,6 +645,7 @@ def create_app():  # noqa: C901
         },
     )
     async def task_result(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         background_tasks: BackgroundTasks,
         task_id: str,
@@ -656,6 +673,7 @@ def create_app():  # noqa: C901
         response_model=ProgressCallbackResponse,
     )
     async def callback_task_progress(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         request: ProgressCallbackRequest,
     ):
@@ -677,6 +695,7 @@ def create_app():  # noqa: C901
         response_model=ClearResponse,
     )
     async def clear_converters(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
     ):
         await orchestrator.clear_converters()
@@ -688,6 +707,7 @@ def create_app():  # noqa: C901
         response_model=ClearResponse,
     )
     async def clear_results(
+        auth: Annotated[AuthenticationResult, Depends(require_auth)],
         orchestrator: Annotated[BaseOrchestrator, Depends(get_async_orchestrator)],
         older_then: float = 3600,
     ):

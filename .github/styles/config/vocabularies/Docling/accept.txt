@@ -24,6 +24,7 @@ Kubeflow
 (?i)ROCm
 (?i)env
 Gradio
+Podman
 bool
 Ollama
 inbody

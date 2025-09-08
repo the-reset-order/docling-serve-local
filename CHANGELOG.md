@@ -1,3 +1,19 @@
+## [v1.4.1](https://github.com/docling-project/docling-serve/releases/tag/v1.4.1) - 2025-09-08
+
+### Fix
+
+* Trigger fix after ci fixes ([#355](https://github.com/docling-project/docling-serve/issues/355)) ([`b0360d7`](https://github.com/docling-project/docling-serve/commit/b0360d723bff202dcf44a25a3173ec1995945fc2))
+
+### Docling libraries included in this release:
+- docling 2.46.0
+- docling 2.51.0
+- docling-core 2.47.0
+- docling-ibm-models 3.9.1
+- docling-jobkit 1.4.1
+- docling-mcp 1.2.0
+- docling-parse 4.4.0
+- docling-serve 1.4.1
+
 ## [v1.4.0](https://github.com/docling-project/docling-serve/releases/tag/v1.4.0) - 2025-09-05
 
 ### Feature

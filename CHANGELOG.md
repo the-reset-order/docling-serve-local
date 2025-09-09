@@ -1,3 +1,19 @@
+## [v1.5.0](https://github.com/docling-project/docling-serve/releases/tag/v1.5.0) - 2025-09-09
+
+### Feature
+
+* Add chunking endpoints ([#353](https://github.com/docling-project/docling-serve/issues/353)) ([`9d6def0`](https://github.com/docling-project/docling-serve/commit/9d6def0ec8b1804ad31aa71defa17658d73d29a1))
+
+### Docling libraries included in this release:
+- docling 2.46.0
+- docling 2.51.0
+- docling-core 2.47.0
+- docling-ibm-models 3.9.1
+- docling-jobkit 1.5.0
+- docling-mcp 1.2.0
+- docling-parse 4.4.0
+- docling-serve 1.5.0
+
 ## [v1.4.1](https://github.com/docling-project/docling-serve/releases/tag/v1.4.1) - 2025-09-08
 
 ### Fix

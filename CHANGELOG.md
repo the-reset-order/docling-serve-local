@@ -1,3 +1,19 @@
+## [v1.5.1](https://github.com/docling-project/docling-serve/releases/tag/v1.5.1) - 2025-09-17
+
+### Fix
+
+* Remove old dependencies, fixes in docling-parse and more minor dependencies upgrade ([#362](https://github.com/docling-project/docling-serve/issues/362)) ([`513ae0c`](https://github.com/docling-project/docling-serve/commit/513ae0c119b66d3b17cf9a5d371a0f7971f43be7))
+* Updates rapidocr deps ([#361](https://github.com/docling-project/docling-serve/issues/361)) ([`bde0406`](https://github.com/docling-project/docling-serve/commit/bde040661fb65c67699326cd6281c0e6232e26f2))
+
+### Docling libraries included in this release:
+- docling 2.52.0
+- docling-core 2.48.1
+- docling-ibm-models 3.9.1
+- docling-jobkit 1.5.0
+- docling-mcp 1.2.0
+- docling-parse 4.5.0
+- docling-serve 1.5.1
+
 ## [v1.5.0](https://github.com/docling-project/docling-serve/releases/tag/v1.5.0) - 2025-09-09
 
 ### Feature

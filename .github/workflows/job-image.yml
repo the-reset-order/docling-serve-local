@@ -108,6 +108,7 @@ jobs:
           cache-to: type=gha,mode=max
           file: Containerfile
           build-args: ${{ inputs.build_args }}
+          pull: true
       ##
       ## This stage runs after the build, so it leverages all build cache
       ## 
@@ -226,7 +227,8 @@ jobs:
           cache-to: type=gha,mode=max
           file: Containerfile
           build-args: ${{ inputs.build_args }}
+          pull: true
 
-      - name: Remove Local Docker Images
+      - name: Remove local Docker images
         run: |
           docker image prune -af

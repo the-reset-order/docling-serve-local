@@ -5,7 +5,7 @@ This guide outlines recommended steps for turning Docling conversions of PDF tex
 ## Clean up and structure the Markdown output
 
 - **Remove noise from the export.** Delete watermark text, repeated headers or footers, and other stray artifacts that Docling may capture during OCR (for example, repeated headings such as `## OceanofPDF.com`).
-- **Correct obvious OCR mistakes.** When the source document is scanned, rerun OCR with the right language settings (e.g. `ocr_lang=["en"]`) or manually fix obvious errors such as garbled cover titles.
+- **Correct obvious OCR mistakes.** When the source document is scanned, rerun OCR with the right language settings (e.g. `ocr_languages=["en"]`) or manually fix obvious errors such as garbled cover titles.
 - **Reflow text into paragraphs.** Merge single-line sentences back into paragraphs separated by blank lines so the Markdown represents coherent blocks of text.
 - **Combine multi-line headings.** Join consecutive headings that belong together (e.g. `## 1` and `## Breathing Again` should become `## 1. Breathing Again`) so every section has a single, descriptive heading.
 - **Normalize the heading hierarchy.** Promote or demote headings until they reflect the true document structure, using `#` for the book title, `##` for chapters, `###` for subsections, and so on.

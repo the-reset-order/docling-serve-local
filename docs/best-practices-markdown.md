@@ -27,7 +27,7 @@ This guide outlines recommended steps for turning Docling conversions of PDF tex
 
 ## Optimize for downstream parsing and chunking
 
-- **Choose a chunking strategy.** Decide whether to produce a single Markdown file or split by chapters using Docling's `individual_chunks=True` output mode or manual post-processing.
+- **Choose a chunking strategy.** Decide whether to produce a single Markdown file or split by chapters using Docling's chunked output mode (see the latest Docling documentation for the appropriate option) or manual post-processing.
 - **Anchor sections with headings.** Ensure every major section begins with a unique heading (e.g. `## 5. Bouncing Forward`) to make downstream navigation and splitting straightforward.
 - **Keep related content together.** Ensure figures stay with captions, multi-page tables remain contiguous, and lists are not inadvertently broken across sections.
 - **Plan for token limits.** If the Markdown will feed LLM workflows, aim for sections that roughly align with ~2,000 tokens to simplify later chunking.

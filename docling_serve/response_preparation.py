@@ -19,6 +19,10 @@ from docling_serve.datamodel.responses import (
     ConvertDocumentResponse,
     PresignedUrlConvertDocumentResponse,
 )
+from docling_serve.markdown_cleanup import (
+    MarkdownCleanupOptions,
+    cleanup_markdown,
+)
 from docling_serve.settings import docling_serve_settings
 
 _log = logging.getLogger(__name__)
@@ -37,8 +41,28 @@ async def prepare_response(
         | ChunkDocumentResponse
     )
     if isinstance(task_result.result, ExportResult):
+        document = task_result.result.content
+
+        if (
+            docling_serve_settings.markdown_cleanup_enabled
+            and getattr(document, "md_content", None)
+        ):
+            cleanup_options = MarkdownCleanupOptions(
+                remove_patterns=docling_serve_settings.markdown_cleanup_remove_patterns,
+                auto_remove_domain_headings=docling_serve_settings.markdown_cleanup_auto_remove_domains,
+                combine_numbered_headings=docling_serve_settings.markdown_cleanup_combine_headings,
+                reflow_paragraphs=docling_serve_settings.markdown_cleanup_reflow_paragraphs,
+            )
+
+            cleaned_md = cleanup_markdown(document.md_content, cleanup_options)
+            if cleaned_md != document.md_content:
+                if hasattr(document, "model_copy"):
+                    document = document.model_copy(update={"md_content": cleaned_md})
+                else:
+                    document.md_content = cleaned_md
+
         response = ConvertDocumentResponse(
-            document=task_result.result.content,
+            document=document,
             status=task_result.result.status,
             processing_time=task_result.processing_time,
             timings=task_result.result.timings,

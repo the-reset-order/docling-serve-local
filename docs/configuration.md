@@ -41,6 +41,11 @@ THe following table describes the options to configure the Docling Serve app.
 | `--enable-ui` | `DOCLING_SERVE_ENABLE_UI` | `false` | Enable the demonstrator UI. |
 |  | `DOCLING_SERVE_ENABLE_REMOTE_SERVICES` | `false` | Allow pipeline components making remote connections. For example, this is needed when using a vision-language model via APIs. |
 |  | `DOCLING_SERVE_ALLOW_EXTERNAL_PLUGINS` | `false` | Allow the selection of third-party plugins. |
+|  | `DOCLING_SERVE_MARKDOWN_CLEANUP_ENABLED` | `true` | Toggle server-side cleanup of Docling Markdown exports. |
+|  | `DOCLING_SERVE_MARKDOWN_CLEANUP_REMOVE_PATTERNS` | `[]` | Optional list of regex patterns. Matching lines are stripped from the Markdown output. |
+|  | `DOCLING_SERVE_MARKDOWN_CLEANUP_AUTO_REMOVE_DOMAINS` | `true` | Remove repeated watermark-like headings that resemble domain names (e.g. `## OceanofPDF.com`). |
+|  | `DOCLING_SERVE_MARKDOWN_CLEANUP_COMBINE_HEADINGS` | `true` | Merge consecutive numbered headings ("## 1" + "## Title" -> "## 1. Title"). |
+|  | `DOCLING_SERVE_MARKDOWN_CLEANUP_REFLOW_PARAGRAPHS` | `true` | Reflow plain text paragraphs into single logical lines for easier reading and downstream parsing. |
 |  | `DOCLING_SERVE_SINGLE_USE_RESULTS` | `true` | If true, results can be accessed only once. If false, the results accumulate in the scratch directory. |
 |  | `DOCLING_SERVE_RESULT_REMOVAL_DELAY` | `300` | When `DOCLING_SERVE_SINGLE_USE_RESULTS` is active, this is the delay before results are removed from the task registry. |
 |  | `DOCLING_SERVE_MAX_DOCUMENT_TIMEOUT` | `604800` (7 days) | The maximum time for processing a document. |

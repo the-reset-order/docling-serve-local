@@ -5,6 +5,8 @@ This documentation pages explore the webserver configurations, runtime options, 
 - [Configuration](./configuration.md)
 - [Handling models](./models.md)
 - [Usage](./usage.md)
+- [WSL2 + NVIDIA quickstart](./quickstart-wsl2-cuda.md)
+- [Best practices for Markdown exports](./best-practices-markdown.md)
 - [Deployment](./deployment.md)
 - [MCP](./mcp.md)
 - [Development](./development.md)

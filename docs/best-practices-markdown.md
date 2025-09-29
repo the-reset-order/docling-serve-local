@@ -2,12 +2,15 @@
 
 This guide outlines recommended steps for turning Docling conversions of PDF textbooks into clean, well-structured Markdown that is easy for both humans and downstream tooling to consume.
 
+> [!TIP]
+> Docling Serve now ships with an opt-in Markdown cleanup pipeline. When `DOCLING_SERVE_MARKDOWN_CLEANUP_ENABLED` is left at its default (`true`), every synchronous response goes through a light post-processing pass that removes common watermarks, merges split headings, and reflows plain-text paragraphs. Tune the behaviour with the cleanup environment variables described in [configuration.md](./configuration.md).
+
 ## Clean up and structure the Markdown output
 
-- **Remove noise from the export.** Delete watermark text, repeated headers or footers, and other stray artifacts that Docling may capture during OCR (for example, repeated headings such as `## OceanofPDF.com`).
-- **Correct obvious OCR mistakes.** When the source document is scanned, rerun OCR with the right language settings (e.g. `ocr_languages=["en"]`) or manually fix obvious errors such as garbled cover titles.
-- **Reflow text into paragraphs.** Merge single-line sentences back into paragraphs separated by blank lines so the Markdown represents coherent blocks of text.
-- **Combine multi-line headings.** Join consecutive headings that belong together (e.g. `## 1` and `## Breathing Again` should become `## 1. Breathing Again`) so every section has a single, descriptive heading.
+- **Remove noise from the export.** Delete watermark text, repeated headers or footers, and other stray artifacts that Docling may capture during OCR (for example, repeated headings such as `## OceanofPDF.com`). Docling Serve's cleanup step can do this automatically by spotting domain-like headings that appear multiple times; add bespoke regexes with `DOCLING_SERVE_MARKDOWN_CLEANUP_REMOVE_PATTERNS` when a book contains unique boilerplate.
+- **Correct obvious OCR mistakes.** When the source document is scanned, rerun OCR with the right language settings (e.g. `ocr_lang=["en"]`) or manually fix obvious errors such as garbled cover titles.
+- **Reflow text into paragraphs.** Merge single-line sentences back into paragraphs separated by blank lines so the Markdown represents coherent blocks of text. Automatic reflow is enabled by default and steers clear of lists, code blocks, and tables so only plain text paragraphs are affected.
+- **Combine multi-line headings.** Join consecutive headings that belong together (e.g. `## 1` and `## Breathing Again` should become `## 1. Breathing Again`) so every section has a single, descriptive heading. The cleanup pipeline handles the common “chapter number followed by title” pattern automatically.
 - **Normalize the heading hierarchy.** Promote or demote headings until they reflect the true document structure, using `#` for the book title, `##` for chapters, `###` for subsections, and so on.
 
 ## Leverage Docling configuration options
@@ -27,7 +30,7 @@ This guide outlines recommended steps for turning Docling conversions of PDF tex
 
 ## Optimize for downstream parsing and chunking
 
-- **Choose a chunking strategy.** Decide whether to produce a single Markdown file or split by chapters using Docling's chunked output mode (see the latest Docling documentation for the appropriate option) or manual post-processing.
+- **Choose a chunking strategy.** Decide whether to produce a single Markdown file or split by chapters using Docling's `individual_chunks=True` output mode or manual post-processing.
 - **Anchor sections with headings.** Ensure every major section begins with a unique heading (e.g. `## 5. Bouncing Forward`) to make downstream navigation and splitting straightforward.
 - **Keep related content together.** Ensure figures stay with captions, multi-page tables remain contiguous, and lists are not inadvertently broken across sections.
 - **Plan for token limits.** If the Markdown will feed LLM workflows, aim for sections that roughly align with ~2,000 tokens to simplify later chunking.

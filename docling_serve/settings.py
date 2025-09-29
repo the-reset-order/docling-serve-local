@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 from typing import Optional, Union
 
-from pydantic import AnyUrl, model_validator
+from pydantic import AnyUrl, Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing_extensions import Self
 
@@ -80,6 +80,12 @@ class DoclingServeSettings(BaseSettings):
     eng_kfp_self_callback_ca_cert_path: Optional[Path] = None
 
     eng_kfp_experimental: bool = False
+
+    markdown_cleanup_enabled: bool = True
+    markdown_cleanup_remove_patterns: list[str] = Field(default_factory=list)
+    markdown_cleanup_auto_remove_domains: bool = True
+    markdown_cleanup_combine_headings: bool = True
+    markdown_cleanup_reflow_paragraphs: bool = True
 
     @model_validator(mode="after")
     def engine_settings(self) -> Self:

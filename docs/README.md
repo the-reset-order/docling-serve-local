@@ -5,6 +5,7 @@ This documentation pages explore the webserver configurations, runtime options, 
 - [Configuration](./configuration.md)
 - [Handling models](./models.md)
 - [Usage](./usage.md)
+- [Best practices for Markdown exports](./best-practices-markdown.md)
 - [Deployment](./deployment.md)
 - [MCP](./mcp.md)
 - [Development](./development.md)

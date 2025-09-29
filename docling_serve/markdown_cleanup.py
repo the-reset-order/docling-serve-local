@@ -243,6 +243,5 @@ def _ensure_heading_spacing(lines: Sequence[str]) -> list[str]:
         if not next_line.strip() or next_line.strip().startswith("#"):
             continue
 
-        if spaced and spaced[-1].strip():
-            spaced.append("")
+        spaced.append("")
     return spaced
